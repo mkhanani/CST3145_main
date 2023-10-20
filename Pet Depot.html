@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Vue.js Pet Depot</title>
+        <!--Load Vue.js from a server-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    </head>
+    <body>
+        <!--The element where Vue will mount-->
+        <div id="app">
+            <header>
+                <h1 v-text="sitename"></h1>
+            </header>
+            <main>
+                <figure>
+                    <!-- bind 'src' attribute to 'product.image' in 'data' -->
+                    <img v-bind:src="product.image">
+                </figure>
+                <h2 v-text="product.title"></h2>
+                <p v-text="product.description"></p>
+
+                <!-- The double curly brackets is used instead of 'v-text' -->
+                <p>Price: {{product.price}}</p>
+            </main>
+        </div>
+
+        <script type="text/javascript">
+            let webstore = new Vue({ // The Vue instance
+                el: '#app' , // The 'option object': DOM Mounting point
+                data: {
+                    sitename: 'Vue.js Pet Depot',
+                    product:{
+                        id: 1001,
+                        title: "Cat Food, 25lb bag",
+                        description: "A 25 pound bag of <em>irresistible</em>,"+"organic goodness for your cat",
+                        price: 2000,
+                        image: "images/product-fullsize.png"
+                    }
+                }
+
+            });
+        </script>
+</html>
